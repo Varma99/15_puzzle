@@ -11,7 +11,7 @@ void go_right();
 void clear_board();
 void swap(int x1,int y1,int x2,int y2);
 int check_win();
-int** get_board(int level); //Function that takes in the user's choice of level and returns the chosen board 
+int* get_board(int level); //Function that takes in the user's choice of level and returns the chosen board 
 
 int (*board)[4]; //A pointer to point to the 2D array with each row containing 4 elements
 
@@ -56,7 +56,7 @@ int main()
     printf("Won with %d moves !\n",move_count);
 }
 
-int** get_board(int option)//Function takes in user's choice and accordingly returns the selected board
+int* get_board(int option)//Function takes in user's choice and accordingly returns the selected board
 {
     if(option == 1)
     {
