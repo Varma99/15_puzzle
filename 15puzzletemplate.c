@@ -13,7 +13,7 @@ void swap(int x1,int y1,int x2,int y2);
 int check_win();
 int* get_board(int level); //Function that takes in the user's choice of level and returns the chosen board 
 
-int (*board)[4]; //A pointer to point to the 2D array with each row containing 4 elements
+int (*board)[4]; //A pointer to point to the array with each row containing 4 elements
 
 //Below are the three different level boards
 int easy_board[4][4] = {1,2,3,4,5,6,7,8,9,10,11,12,0,13,14,15} ;
