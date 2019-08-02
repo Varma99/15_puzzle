@@ -11,16 +11,16 @@ void go_right();
 void clear_board();
 void swap(int x1,int y1,int x2,int y2);
 int check_win();
-
-int** get_board(int level); //Function that returns the base address of the 1st row array to the below pointer
+int** get_board(int level); //Function that takes in the user's choice of level and returns the chosen board 
 
 int (*board)[4]; //A pointer to point to the 2D array with each row containing 4 elements
 
+//Below are the three different level boards
 int easy_board[4][4] = {1,2,3,4,5,6,7,8,9,10,11,12,0,13,14,15} ;
 int medium_board[4][4] = {1,2,3,4,5,6,7,8,11,0,15,12,14,10,9,13} ;
 int hard_board[4][4] = {1,2,3,4,5,6,7,8,9,10,11,12,13,15,14,0};
 
-//Intially zero postions ,first and second indexes , if 0 is at (1,3) firstindex will be 1 and second will be 3
+//The position of 0 is initialized as per the user selected level in a function called 'get_board' 
 int zero_pos_first_index;
 int zero_pos_seond_index;
 //Initial move count
@@ -43,17 +43,12 @@ int main()
             //Take input and store in ch
              char ch;
              ch = take_input();
-            //printf("%c",ch);
-        //Process input (ch)
-             process_input(ch);
-        //Clear the board
-             clear_board();
-        //Draw the board again
-             printf("\n\n");
+             process_input(ch);//Process input (ch)
+             clear_board(); //Clear the board
+             printf("\n\n");//Draw the board again
              draw_board();
              if(ch != 'w' && ch != 'a' && ch != 's' && ch != 'd')printf("\n\tInvalid Move !\n");
-        //Increase move count
-             move_count++;
+             move_count++;//Increase move count
         }
     //End Loop
     free(board);
@@ -61,7 +56,7 @@ int main()
     printf("Won with %d moves !\n",move_count);
 }
 
-int** get_board(int option)
+int** get_board(int option)//Function takes in user's choice and accordingly returns the selected board
 {
     if(option == 1)
     {
@@ -87,15 +82,6 @@ int** get_board(int option)
 }
 void draw_board()
 {
-/*
-Print the current board like
- 1  2  3  4
- 5  6  7  8
- 9 10 11 12
-13 14  0 15
-
-----------[W] UP --- [S] Down --- [A] LEFT --- [D] Right--------------
-*/
    int row_index , col_index;
    row_index = -1;
    while(++row_index < 4)
